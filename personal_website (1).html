@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Tech Solution - Online Learning Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2b6cb0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0;
+            background: #f8fafc;
+            padding: 0.5rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+            position: relative;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: #1e293b;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #4a5568;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Common Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #2d3748;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(66, 153, 225, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #2b6cb0;
+            border: 2px solid #2b6cb0;
+        }
+
+        .btn-secondary:hover {
+            background: #2b6cb0;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* HOME PAGE STYLES */
+        .home-page {
+            background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 50%, #e6fffa 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2b6cb0 0%, #38a169 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-content .intro {
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: bounce 6s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* ABOUT PAGE STYLES */
+        .about-page {
+            padding: 5rem 0;
+            background: #f7fafc;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .education {
+            background: #e6fffa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .education h4 {
+            color: #2b6cb0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .education ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .education li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+        }
+
+        .education li::before {
+            content: "🎓";
+            margin-right: 0.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2b6cb0;
+            display: block;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        /* COURSES PAGE STYLES */
+        .courses-page {
+            padding: 5rem 0;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .course-card h3 {
+            color: #2b6cb0;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .course-card p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .course-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #38a169;
+            margin-bottom: 1rem;
+        }
+
+        /* STUDENTS PAGE STYLES */
+        .students-page {
+            padding: 5rem 0;
+            background: #f7fafc;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .student-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4299e1, #38a169);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .student-details h4 {
+            color: #2d3748;
+            margin-bottom: 0.2rem;
+        }
+
+        .student-details p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .success-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 3rem 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .success-stat {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .success-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2b6cb0;
+            display: block;
+        }
+
+        .success-stat .label {
+            color: #718096;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        /* FEES PAGE STYLES */
+        .fees-page {
+            padding: 5rem 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #4299e1;
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2b6cb0;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .features li {
+            padding: 0.7rem 0;
+            color: #4a5568;
+        }
+
+        .features li::before {
+            content: "✓";
+            color: #38a169;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .payment-info {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: #f7fafc;
+            border-radius: 15px;
+        }
+
+        .payment-info h3 {
+            color: #2b6cb0;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .payment-info p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* LOGIN PAGE STYLES */
+        .login-page {
+            background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .login-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-header h2 {
+            color: #2b6cb0;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #718096;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #4299e1;
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #718096;
+        }
+
+        .form-toggle a {
+            color: #2b6cb0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-toggle a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-container, .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image img {
+                width: 300px;
+                height: 300px;
+            }
+
+            .about-image img {
+                width: 280px;
+                height: 280px;
+            }
+
+            .login-container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" onclick="showPage('home')">
+                <img src="logo.png" alt="C-tech Solutions Logo">
+                <span>C-Tech Solutions</span>
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="showPage('home')" class="active">Home</a></li>
+                <li><a onclick="showPage('about')">About</a></li>
+                <li><a onclick="showPage('courses')">Courses</a></li>
+                <li><a onclick="showPage('students')">Students</a></li>
+                <li><a onclick="showPage('fees')">Fees</a></li>
+            </ul>
+            <div class="login-btn" onclick="showPage('login')">Login</div>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page home-page active">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>C-Tech Solutions</h1>
+                    <p class="tagline">Transforming Lives Through Technology Education</p>
+                    <p class="intro">
+                        Welcome to C-Tech Solutions! We're passionate about creating engaging, 
+                        accessible educational experiences that empower students to master technology skills. 
+                        With over 8 years of experience in online education, we specialize in designing 
+                        courses that make complex tech concepts simple and enjoyable to learn.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary" onclick="showPage('courses')">Explore Courses</a>
+                        <a href="#" class="btn btn-secondary" onclick="showPage('about')">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="pexels.jpg" alt="C-tech Solutions Team">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page about-page">
+        <div class="container">
+            <h2 class="section-title">About C-Tech Solutions</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=350&h=350&fit=crop" alt="About C-tech Solutions">
+                </div>
+                <div class="about-text">
+                    <h3>Technology Educators, Innovators, Mentors</h3>
+                    <p>
+                        At C-Tech Solutions, we combine passion for technology with excellence in education. 
+                        Our journey began with a simple mission: to make cutting-edge technology skills 
+                        accessible to everyone, regardless of their background or experience level.
+                    </p>
+                    <p>
+                        We believe that every student has unique potential waiting to be unlocked. Through 
+                        personalized learning approaches, hands-on projects, and continuous mentorship, 
+                        we help students not just learn technology, but truly understand and apply it 
+                        in real-world scenarios that advance their careers.
+                    </p>
+                    <p>
+                        Our team consists of industry experts, certified educators, and technology enthusiasts 
+                        who are committed to staying at the forefront of technological advancement while 
+                        maintaining the highest standards of educational excellence.
+                    </p>
+                    <div class="education">
+                        <h4>Our Expertise & Credentials</h4>
+                        <ul>
+                            <li>Advanced Degrees in Computer Science & Education</li>
+                            <li>Industry Certifications (AWS, Google Cloud, Microsoft)</li>
+                            <li>10+ Years Combined Teaching Experience</li>
+                            <li>Partnerships with Leading Tech Companies</li>
+                            <li>Continuous Professional Development Programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">1000+</span>
+                    <div class="stat-label">Students Trained</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">98%</span>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">50+</span>
+                    <div class="stat-label">Expert Instructors</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <div class="stat-label">Student Support</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COURSES PAGE -->
+    <div id="courses" class="page courses-page">
+        <div class="container">
+            <h2 class="section-title">Our Technology Courses</h2>
+            <p style="text-align: center; color: #718096; margin-bottom: 3rem; font-size: 1.1rem;">
+                Comprehensive, hands-on courses designed by industry experts to accelerate your tech career
+            </p>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=200&fit=crop" alt="Full Stack Development" class="course-image">
+                    <h3>Full Stack Web Development</h3>
+                    <p>
+                        Master modern web development with HTML5, CSS3, JavaScript, React, Node.js, and databases. 
+                        Build real-world applications and create a professional portfolio.
+                    </p>
+                    <div class="course-details">
+                        <span>📅 16 Weeks</span>
+                        <span>🎓 Certificate</span>
+                        <span>💻 10 Projects</span>
+                    </div>
+                    <div class="course-price">Free</div>
+                    <a href="https://www.udemy.com/course/full-stack-development-course-for-beginners/?srsltid=AfmBOoq37ie-M10uMTEkw28CTnYrEhFX0eztBJAGp9T81ZHL653Mou1x" 
+   class="btn btn-primary" 
+   target="_blank">
+   Enroll Now
+</a>
+
+                </div>
+                
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Data Science" class="course-image">
+                    <h3>Data Science & Machine Learning</h3>
+                    <p>
+                        Learn Python, pandas, NumPy, scikit-learn, and TensorFlow. Master data analysis, 
+                        visualization, and machine learning algorithms with real datasets.
+                    </p>
+                    <div class="course-details">
+                        <span>📅 14 Weeks</span>
+                        <span>🎓 Certificate</span>
+                        <span>📊 8 Projects</span>
+                    </div>
+                    <div class="course-price">$10</div>
+                    <a href="#" class="btn btn-primary" onclick="showPage('fees')">Enroll Now</a>
+                </div>
+                
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop" alt="Cloud Computing" class="course-image">
+                    <h3>Cloud Computing (AWS/Azure)</h3>
+                    <p>
+                        Comprehensive cloud architecture, deployment, and management. Prepare for AWS Solutions 
+                        Architect and Azure Administrator certifications.
+                    </p>
+                    <div class="course-details">
+                        <span>📅 12 Weeks</span>
+                        <span>🎓 Certificate</span>
+                        <span>☁️ Hands-on Labs</span>
+                    </div>
+                    <div class="course-price">$14</div>
+                    <a href="#" class="btn btn-primary" onclick="showPage('fees')">Enroll Now</a>
+                </div>
+                
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=200&fit=crop" alt="Cybersecurity" class="course-image">
+                    <h3>Cybersecurity Fundamentals</h3>
+                    <p>
+                        Essential cybersecurity concepts, ethical hacking, network security, and incident response. 
+                        Prepare for industry certifications like Security+.
+                    </p>
+                    <div class="course-details">
+                        <span>📅 10 Weeks</span>
+                        <span>🎓 Certificate</span>
+                        <span>🔒 Lab Simulations</span>
+                    </div>
+                    <div class="course-price">$9</div>
+                    <a href="#" class="btn btn-primary" onclick="showPage('fees')">Enroll Now</a>
+                </div>
+                
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=200&fit=crop" alt="Mobile Development" class="course-image">
+                    <h3>Mobile App Development</h3>
+                    <p>
+                        Build native and cross-platform mobile apps using React Native and Flutter. 
+                        Publish apps to App Store and Google Play.
+                    </p>
+                    <div class="course-details">
+                        <span>📅 12 Weeks</span>
+                        <span>🎓 Certificate</span>
+                        <span>📱 5 Apps</span>
+                    </div>
+                    <div class="course-price">$79</div>
+                    <a href="#" class="btn btn-primary" onclick="showPage('fees')">Enroll Now</a>
+                </div>
+                
+                <div class="course-card">
+                    <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=400&h=200&fit=crop" alt="DevOps" class="course-image">
+                    <h3>DevOps & Automation</h3>
+                    <p>
+                        Master CI/CD pipelines, Docker, Kubernetes, Jenkins, and infrastructure as code. 
+                        Automate deployment and improve development workflows.
+                    </p>
+                    <div class="course-details">
+                        <span>📅 14 Weeks</span>
+                        <span>🎓 Certificate</span>
+                        <span>⚙️ Automation</span>
+                    </div>
+                    <div class="course-price">$12</div>
+                    <a href="#" class="btn btn-primary" onclick="showPage('fees')">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDENTS PAGE -->
+    <div id="students" class="page students-page">
+        <div class="container">
+            <h2 class="section-title">Student Success Stories</h2>
+            <p style="text-align: center; color: #718096; margin-bottom: 3rem; font-size: 1.1rem;">
+                Real stories from real students who transformed their careers with C-tech Solutions
+            </p>
+
+            <div class="success-stats">
+                <div class="success-stat">
+                    <span class="number">5,247</span>
+                    <div class="label">Graduates</div>
+                </div>
+                <div class="success-stat">
+                    <span class="number">89%</span>
+                    <div class="label">Job Placement Rate</div>
+                </div>
+                <div class="success-stat">
+                    <span class="number">$75K</span>
+                    <div class="label">Average Salary Increase</div>
+                </div>
+                <div class="success-stat">
+                    <span class="number">4.9/5</span>
+                    <div class="label">Student Rating</div>
+                </div>
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "C-Tech Solutions' Full Stack Web Development course completely transformed my career. 
+                        The hands-on approach and real-world projects helped me build a portfolio that landed me 
+                        a senior developer position at a Fortune 500 company. The instructors are industry experts 
+                        who genuinely care about your success!"
+                    </p>
+                    <div class="student-info">
+                        <div class="student-avatar">MJ</div>
+                        <div class="student-details">
+                            <h4>Michael Johnson</h4>
+                            <p>Senior Full Stack Developer at Microsoft</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "I was completely new to programming when I started the Data Science course. The structured 
+                        curriculum and personalized mentorship made complex concepts easy to understand. Now I'm 
+                        working as a Machine Learning Engineer and loving every day of my new career!"
+                    </p>
+                    <div class="student-info">
+                        <div class="student-avatar">AL</div>
+                        <div class="student-details">
+                            <h4>Amanda Lee</h4>
+                            <p>Machine Learning Engineer at Google</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "The Cloud Computing course prepared me perfectly for my AWS certification. The hands-on labs 
+                        and real-world scenarios gave me the confidence to architect cloud solutions. I transitioned 
+                        from system admin to Cloud Solutions Architect with a 60% salary increase!"
+                    </p>
+                    <div class="student-info">
+                        <div class="student-avatar">DK</div>
+                        <div class="student-details">
+                            <h4>David Kim</h4>
+                            <p>Cloud Solutions Architect at Amazon</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "As a career changer from marketing to tech, I was nervous about learning cybersecurity. 
+                        C-Tech Solutions created such a supportive learning environment. The practical labs and 
+                        industry insights helped me secure a role as a Security Analyst within 6 months of graduation!"
+                    </p>
+                    <div class="student-info">
+                        <div class="student-avatar">SF</div>
+                        <div class="student-details">
+                            <h4>Sarah Foster</h4>
+                            <p>Cybersecurity Analyst at IBM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "The Mobile App Development course exceeded my expectations. Building five real apps gave me 
+                        the experience I needed to freelance successfully. I now run my own app development business 
+                        and have published over 15 apps in the app stores!"
+                    </p>
+                    <div class="student-info">
+                        <div class="student-avatar">RT</div>
+                        <div class="student-details">
+                            <h4>Robert Thompson</h4>
+                            <p>Independent App Developer & Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "The DevOps course was exactly what I needed to advance in my career. Learning automation 
+                        and CI/CD pipelines made me invaluable to my team. I got promoted to DevOps Lead and now 
+                        mentor other developers in best practices. Thank you C-tech Solutions!"
+                    </p>
+                    <div class="student-info">
+                        <div class="student-avatar">EM</div>
+                        <div class="student-details">
+                            <h4>Emily Martinez</h4>
+                            <p>DevOps Team Lead at Netflix</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEES PAGE -->
+    <div id="fees" class="page fees-page">
+        <div class="container">
+            <h2 class="section-title">Course Fees & Investment Plans</h2>
+            <p style="text-align: center; color: #718096; margin-bottom: 3rem; font-size: 1.1rem;">
+                Flexible pricing options designed to make quality tech education accessible to everyone
+            </p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Self-Paced Learning</h3>
+                    <div class="price">$0</div>
+                    <div class="price-period">per course</div>
+                    <ul class="features">
+                        <li>Complete course materials & videos</li>
+                        <li>Downloadable resources & templates</li>
+                        <li>Community forum access</li>
+                        <li>Self-assessment quizzes</li>
+                        <li>Course completion certificate</li>
+                        <li>12 months access</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" onclick="showPage('login')">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3 class="plan-name">Guided Learning</h3>
+                    <div class="price">$10</div>
+                    <div class="price-period">per course</div>
+                    <ul class="features">
+                        <li>Everything in Self-Paced</li>
+                        <li>Live weekly group sessions</li>
+                        <li>Monthly 1-on-1 mentoring</li>
+                        <li>Project reviews & feedback</li>
+                        <li>Career guidance sessions</li>
+                        <li>Lifetime course access</li>
+                        <li>Priority email support</li>
+                        <li>LinkedIn profile optimization</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" onclick="showPage('login')">Most Popular</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="plan-name">Premium Mentorship</h3>
+                    <div class="price">$99</div>
+                    <div class="price-period">per course</div>
+                    <ul class="features">
+                        <li>Everything in Guided Learning</li>
+                        <li>Weekly 1-on-1 mentoring sessions</li>
+                        <li>Custom project development</li>
+                        <li>Industry networking opportunities</li>
+                        <li>Resume & portfolio review</li>
+                        <li>Mock interview preparation</li>
+                        <li>Job placement assistance</li>
+                        <li>Direct instructor access</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" onclick="showPage('login')">Premium Choice</a>
+                </div>
+            </div>
+            
+            <div class="payment-info">
+                <h3>Flexible Payment Options</h3>
+                <p>
+                    We believe financial constraints shouldn't limit your learning potential. 
+                    Choose from our flexible payment plans designed to fit your budget.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div>
+                        <h4 style="color: #2b6cb0; margin-bottom: 0.5rem;">💳 Pay in Full</h4>
+                        <p>Save 10% when you pay the complete course fee upfront</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #2b6cb0; margin-bottom: 0.5rem;">📅 3-Month Plan</h4>
+                        <p>Split your course fee into 3 easy monthly installments</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #2b6cb0; margin-bottom: 0.5rem;">🎓 Income Share Agreement</h4>
+                        <p>Pay nothing upfront, pay 15% of income for 2 years after job placement</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #2b6cb0; margin-bottom: 0.5rem;">🏢 Corporate Training</h4>
+                        <p>Special rates for team training and enterprise solutions</p>
+                    </div>
+                </div>
+                <div style="background: #e6fffa; padding: 2rem; border-radius: 10px; margin-top: 2rem;">
+                    <h4 style="color: #2b6cb0; margin-bottom: 1rem; text-align: center;">Ready to Start Your Tech Journey?</h4>
+                    <p style="text-align: center; margin-bottom: 1rem;">
+                        <strong>Contact our Admissions Team:</strong>
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                        <div>📧 <strong>Email:</strong> admissions@ctechsolutions.com</div>
+                        <div>📱 <strong>Phone:</strong> +1 (555) 123-4567</div>
+                        <div>💬 <strong>WhatsApp:</strong> +1 (555) 123-4567</div>
+                    </div>
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: #4a5568;">
+                        Free 30-minute consultation available • No hidden fees • 30-day money-back guarantee
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="login" class="page login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Student Portal</h2>
+                <p>Access your courses and track your progress</p>
+            </div>
+            
+            <div id="loginForm">
+                <h3 style="margin-bottom: 1.5rem; text-align: center;">Sign In to Your Account</h3>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
+                            <input type="checkbox" name="remember"> Remember me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">
+                        Sign In
+                    </button>
+                </form>
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <a href="#" style="color: #2b6cb0; text-decoration: none; font-size: 0.9rem;">Forgot your password?</a>
+                </div>
+                <div class="form-toggle">
+                    Don't have an account? 
+                    <a href="#" onclick="toggleForm()">Create account</a>
+                </div>
+            </div>
+            
+            <div id="signupForm" style="display: none;">
+                <h3 style="margin-bottom: 1.5rem; text-align: center;">Create Your Account</h3>
+                <form onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" name="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <input type="tel" id="signupPhone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" name="password" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; font-weight: normal;">
+                            <input type="checkbox" name="terms" required> I agree to the Terms & Conditions
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">
+                        Create Account
+                    </button>
+                </form>
+                <div class="form-toggle">
+                    Already have an account? 
+                    <a href="#" onclick="toggleForm()">Sign in</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 C-tech Solutions. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #cbd5e0;">
+                Empowering the next generation of tech professionals through innovative education
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Current active page
+        let currentPage = 'home';
+
+        // Show specific page
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                currentPage = pageId;
+                
+                // Update navigation active state
+                updateNavigation(pageId);
+                
+                // Scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Update navigation active state
+        function updateNavigation(activePageId) {
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to current page link
+            const activeLink = document.querySelector(`.nav-links a[onclick="showPage('${activePageId}')"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Toggle between login and signup forms
+        function toggleForm() {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+
+        // Handle login form submission
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simple validation
+            if (email && password) {
+                alert('Login successful! Welcome to C-tech Solutions Student Portal.');
+                // In a real application, you would handle authentication here
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        // Handle signup form submission
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const phone = document.getElementById('signupPhone').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Simple validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            if (name && email && phone && password) {
+                alert('Account created successfully! Welcome to C-tech Solutions!');
+                // In a real application, you would handle user registration here
+                toggleForm(); // Switch back to login form
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        // Mobile menu toggle (for future implementation)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+        });
+
+        // Handle browser back/forward buttons (basic implementation)
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.page) {
+                showPage(event.state.page);
+            }
+        });
+
+        // Add state to browser history when changing pages
+        function showPageWithHistory(pageId) {
+            showPage(pageId);
+            history.pushState({ page: pageId }, '', `#${pageId}`);
+        }
+
+        // Update all onclick handlers to use history
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('[onclick*="showPage"]');
+            navItems.forEach(item => {
+                const onclick = item.getAttribute('onclick');
+                if (onclick) {
+                    const pageId = onclick.match(/showPage\('(.+?)'\)/)[1];
+                    item.setAttribute('onclick', `showPageWithHistory('${pageId}')`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

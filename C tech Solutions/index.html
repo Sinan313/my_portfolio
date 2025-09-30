@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="C-Tech Solutions - Premium online learning platform offering Digital Marketing, Web Development, Data Analysis, UI/UX Design and AI courses with 98% success rate">
+    <meta name="keywords" content="online learning, web development, digital marketing, data analysis, UI/UX design, AI courses, tech education, programming">
+    <meta name="author" content="C-Tech Solutions">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="C-Tech Solutions - Transform Your Career Through Online Learning">
+    <meta property="og:description" content="Premium online learning platform with 98% success rate. Learn Digital Marketing, Web Development, Data Science, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ctechsolutions.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=400&fit=crop&crop=face">
+    <title>C-Tech Solutions - Transform Your Career Through Online Learning</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Message Container -->
+    <div id="messageContainer" class="message"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" onclick="showPageWithHistory('home')" style="cursor: pointer;">
+                <img src="logo.png" alt="C-Tech Solutions Logo" class="logo-image-file">
+                <div class="logo-text">
+                    <div class="logo-image">C</div>
+                    <span>C-Tech Solutions</span>
+                </div>
+            </div>
+            
+            <ul class="nav-links" id="publicNav">
+                <li><a onclick="showPageWithHistory('home')" class="active">Home</a></li>
+                <li><a onclick="showPageWithHistory('about')">About</a></li>
+                <li><a onclick="showPageWithHistory('courses')">Courses</a></li>
+                <li><a onclick="showPageWithHistory('resources')">Resources</a></li>
+                <li><a onclick="showPageWithHistory('students')">Students</a></li>
+                <li><a onclick="showPageWithHistory('fees')">Fees</a></li>
+                <!--<li><a onclick="showPageWithHistory('contact')">Contact</a></li>-->
+            </ul>
+            
+            <ul class="nav-links" id="userNav" style="display: none;">
+                <li><a onclick="showPageWithHistory('dashboard')" class="active">Dashboard</a></li>
+                <li><a onclick="showPageWithHistory('resources')">Resources</a></li>
+                <li class="dropdown">
+                    <a onclick="toggleAccountDropdown()" class="account-dropdown">Account <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu" id="accountDropdown">
+                        <a onclick="showPageWithHistory('profile')">Profile</a>
+                        <a onclick="logout()">Sign Out</a>
+                    </div>
+                </li>
+            </ul>
+
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="login-btn" id="loginButton" onclick="showLogin()">Login</div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Home/Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>C-Tech Solutions</h1>
+                    <p class="tagline">Transforming Lives Through Online Learning</p>
+                    <p class="intro">
+                        Welcome to our premium digital learning platform! We're passionate about creating engaging, 
+                        accessible educational experiences that empower students to achieve their goals. 
+                        With over 8 years of experience in online education, we specialize in designing 
+                        courses that make complex topics simple and enjoyable.
+                    </p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="showPageWithHistory('courses')">Explore Courses</button>
+                        <button class="btn btn-secondary" onclick="showPageWithHistory('about')">Learn About Us</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=400&fit=crop&crop=face" alt="C-Tech Solutions - Online Learning Platform">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section hidden">
+            <div class="container">
+                <h2 class="section-title">About C-Tech Solutions</h2>
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center;">
+                    <div style="text-align: center;">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&h=300&fit=crop" alt="Team collaboration" style="width: 300px; height: 300px; border-radius: 15px; object-fit: cover; box-shadow: var(--shadow-sm);">
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary);">Educator, Innovator, Mentor</h3>
+                        <p style="margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.7;">
+                            With a passion for education and technology, we've dedicated our mission to making 
+                            learning accessible, engaging, and effective for students worldwide. Our journey 
+                            began in traditional classrooms, but we quickly realized the immense potential 
+                            of online learning to reach and impact more lives.
+                        </p>
+                        <p style="margin-bottom: 1.5rem; color: var(--text-secondary); line-height: 1.7;">
+                            We believe that every student has unique potential waiting to be unlocked. Through 
+                            personalized learning approaches, interactive content, and continuous support, 
+                            we help students not just learn, but truly understand and apply knowledge in 
+                            real-world scenarios. Our platform integrates with modern AI tools like Grok for enhanced learning support.
+                        </p>
+                        <div style="background: var(--bg-accent); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Our Credentials</h4>
+                            <ul style="padding-left: 1.5rem;">
+                                <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">ISO 9001:2015 Certified Education Provider</li>
+                                <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">NASSCOM Member Institution</li>
+                                <li style="margin-bottom: 0.5rem; color: var(--text-secondary);">Google Certified Training Partner</li>
+                                <li style="color: var(--text-secondary);">Microsoft Learn Education Partner</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Section in About -->
+                <div class="stats-section" style="margin-top: 4rem; background: var(--bg-secondary); padding: 4rem 2rem; border-radius: 20px;">
+                    <h3 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: var(--primary-color);">Our Impact</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">15,000+</div>
+                            <div class="stat-label">Students Trained</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Expert Instructors</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Student Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="section hidden">
+            <div class="container">
+                <h2 class="section-title">Learning Resources</h2>
+                
+                <!-- Search Bar -->
+                <div class="resource-search">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="resourceSearch" placeholder="Search resources..." onkeyup="searchResources(this.value)">
+                    </div>
+                </div>
+
+                <!-- Resource Subtabs -->
+                <div class="resource-tabs">
+                    <button class="tab-btn active" onclick="filterResourcesByTab('all')">All Resources</button>
+                    <button class="tab-btn" onclick="filterResourcesByTab('faith')">Faith</button>
+                    <button class="tab-btn" onclick="filterResourcesByTab('other')">Other</button>
+                </div>
+
+                <!-- Resources Grid -->
+                <div class="resources-grid" id="resourcesGrid">
+                    <!-- Faith Resources -->
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop" alt="Islamic Studies" class="resource-image">
+                        <div class="resource-content">
+                            <h3>ZANJAAN Study Guide</h3>
+                            <p>Comprehensive study materials for ZANJAAN course with detailed explanations and practice exercises.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Complete ZANJAAN Course Materials</h4>
+                            <p>This comprehensive guide covers all aspects of the ZANJAAN curriculum including:</p>
+                            <ul>
+                                <li>Fundamental principles and concepts</li>
+                                <li>Chapter-wise detailed explanations</li>
+                                <li>Practice exercises and solutions</li>
+                                <li>Previous year questions and answers</li>
+                                <li>Audio recordings of key lessons</li>
+                                <li>Interactive quizzes and assessments</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://unsplash.com/photos/a-stack-of-books-sitting-on-top-of-a-table-XgMiKakDtjs" alt="Islamic Studies" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Madkhal and Manthiq</h3>
+                            <p>Essential resources for understanding logic and methodology in Islamic studies.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Madkhal and Manthiq - Complete Reference</h4>
+                            <p>Detailed study materials covering logical principles and methodological approaches:</p>
+                            <ul>
+                                <li>Introduction to Islamic logic</li>
+                                <li>Principles of reasoning</li>
+                                <li>Methodological frameworks</li>
+                                <li>Practical applications</li>
+                                <li>Classical texts and commentaries</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300&h=200&fit=crop" alt="Fiqh Studies" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Fathul Mueen Handbook</h3>
+                            <p>Comprehensive guide to Islamic jurisprudence with practical examples and case studies.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Fathul Mueen - Complete Study Guide</h4>
+                            <p>Extensive coverage of Islamic jurisprudence including:</p>
+                            <ul>
+                                <li>Principles of Islamic law</li>
+                                <li>Categories of legal rulings</li>
+                                <li>Contemporary applications</li>
+                                <li>Case studies and examples</li>
+                                <li>Scholarly opinions and debates</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://unsplash.com/photos/a-row-of-books-sitting-next-to-each-other-BehHTDB82lY" alt="Arabic Grammar" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Qatr-u-Nida Grammar</h3>
+                            <p>Arabic grammar essentials with detailed explanations and practice exercises.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Qatr-u-Nida - Arabic Grammar Mastery</h4>
+                            <p>Complete Arabic grammar course covering:</p>
+                            <ul>
+                                <li>Morphology and syntax rules</li>
+                                <li>Verb conjugations and patterns</li>
+                                <li>Noun declensions</li>
+                                <li>Sentence structures</li>
+                                <li>Poetry and prose analysis</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://images.unsplash.com/photo-1564865878688-9a244444042a?w=300&h=200&fit=crop" alt="Urdu Literature" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Urdu Language & Literature</h3>
+                            <p>Comprehensive Urdu language course with literature analysis and writing techniques.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Urdu Language & Literature Complete Course</h4>
+                            <p>Master Urdu language and literature with:</p>
+                            <ul>
+                                <li>Grammar and composition</li>
+                                <li>Classical poetry analysis</li>
+                                <li>Modern prose studies</li>
+                                <li>Creative writing techniques</li>
+                                <li>Historical context and evolution</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop" alt="Modern Arabic" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Modern Arabic Course</h3>
+                            <p>Contemporary Arabic language skills for modern communication and media literacy.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Modern Arabic - Contemporary Skills</h4>
+                            <p>Learn modern Arabic communication with:</p>
+                            <ul>
+                                <li>Conversational Arabic</li>
+                                <li>Media Arabic comprehension</li>
+                                <li>Business communication</li>
+                                <li>Digital literacy in Arabic</li>
+                                <li>Cross-cultural communication</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://images.unsplash.com/photo-1590736969955-71cc94901144?w=300&h=200&fit=crop" alt="Quranic Recitation" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Mukhtasarul Bayan - Thajweed</h3>
+                            <p>Complete guide to Quranic recitation rules with audio examples and practice sessions.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Thajweed - Art of Quranic Recitation</h4>
+                            <p>Master the rules of Thajweed with:</p>
+                            <ul>
+                                <li>Pronunciation guidelines</li>
+                                <li>Rhythm and melody rules</li>
+                                <li>Audio demonstrations</li>
+                                <li>Practice exercises</li>
+                                <li>Common mistakes and corrections</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other Resources -->
+                    <div class="resource-box" data-category="other">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" alt="Statistics" class="resource-image">
+                        <div class="resource-content">
+                            <h3>IIT Statistics Cheatsheet</h3>
+                            <p>Essential statistical concepts and formulas for competitive exams and research.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>IIT Statistics - Complete Reference</h4>
+                            <p>Comprehensive statistical concepts covering:</p>
+                            <ul>
+                                <li>Descriptive statistics</li>
+                                <li>Probability distributions</li>
+                                <li>Hypothesis testing</li>
+                                <li>Regression analysis</li>
+                                <li>Statistical software tutorials</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="other">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=300&h=200&fit=crop" alt="English Literature" class="resource-image">
+                        <div class="resource-content">
+                            <h3>English - IIT Course Material</h3>
+                            <p>Advanced English language skills for academic and professional excellence.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>English - IIT Level Mastery</h4>
+                            <p>Advanced English skills including:</p>
+                            <ul>
+                                <li>Academic writing techniques</li>
+                                <li>Critical analysis methods</li>
+                                <li>Presentation skills</li>
+                                <li>Research methodology</li>
+                                <li>Professional communication</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="other">
+                        <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=300&h=200&fit=crop" alt="Computational Thinking" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Computational Thinking Guide</h3>
+                            <p>Problem-solving methodologies and algorithmic thinking for the digital age.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Computational Thinking - Digital Problem Solving</h4>
+                            <p>Master computational thinking with:</p>
+                            <ul>
+                                <li>Algorithm design principles</li>
+                                <li>Pattern recognition techniques</li>
+                                <li>Decomposition strategies</li>
+                                <li>Abstraction methods</li>
+                                <li>Programming logic</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Resources -->
+                    <div class="resource-box" data-category="other">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68e2c6b6d6?w=300&h=200&fit=crop" alt="Programming" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Programming Fundamentals</h3>
+                            <p>Essential programming concepts and best practices for beginners.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Programming Fundamentals Complete Guide</h4>
+                            <p>Learn programming basics including:</p>
+                            <ul>
+                                <li>Variable types and data structures</li>
+                                <li>Control flow and loops</li>
+                                <li>Functions and modules</li>
+                                <li>Object-oriented concepts</li>
+                                <li>Debugging techniques</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=300&h=200&fit=crop" alt="Islamic History" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Islamic History Timeline</h3>
+                            <p>Comprehensive timeline of Islamic civilization and key historical events.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Islamic History - Comprehensive Timeline</h4>
+                            <p>Explore Islamic history through:</p>
+                            <ul>
+                                <li>Prophetic period and early Islam</li>
+                                <li>Caliphate expansions</li>
+                                <li>Golden age achievements</li>
+                                <li>Medieval Islamic states</li>
+                                <li>Modern Islamic movements</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More resources to fill the 20 requirement -->
+                    <div class="resource-box" data-category="other">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=200&fit=crop" alt="Mathematics" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Advanced Mathematics</h3>
+                            <p>Complex mathematical concepts with step-by-step solutions.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Advanced Mathematics Reference</h4>
+                            <p>Master advanced mathematics with:</p>
+                            <ul>
+                                <li>Calculus and differential equations</li>
+                                <li>Linear algebra applications</li>
+                                <li>Complex analysis</li>
+                                <li>Mathematical modeling</li>
+                                <li>Numerical methods</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="other">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=200&fit=crop" alt="Research Methods" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Research Methodology</h3>
+                            <p>Comprehensive guide to academic research and methodology.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Research Methodology Complete Guide</h4>
+                            <p>Learn research methods including:</p>
+                            <ul>
+                                <li>Research design and planning</li>
+                                <li>Data collection techniques</li>
+                                <li>Statistical analysis methods</li>
+                                <li>Academic writing standards</li>
+                                <li>Citation and referencing</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continue with more resources to reach 20 -->
+                    <div class="resource-box" data-category="faith">
+                        <img src="https://images.unsplash.com/photo-1585435557343-3b092031d4c1?w=300&h=200&fit=crop" alt="Hadith Studies" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Hadith Sciences</h3>
+                            <p>Comprehensive study of Hadith methodology and authentication.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Hadith Sciences - Complete Study</h4>
+                            <p>Master Hadith sciences with:</p>
+                            <ul>
+                                <li>Chain of narration analysis</li>
+                                <li>Authentication methods</li>
+                                <li>Classification systems</li>
+                                <li>Historical context</li>
+                                <li>Contemporary applications</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="other">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=200&fit=crop" alt="Leadership" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Leadership Development</h3>
+                            <p>Essential leadership skills and management principles for modern professionals.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Leadership Development Program</h4>
+                            <p>Develop leadership skills through:</p>
+                            <ul>
+                                <li>Team management strategies</li>
+                                <li>Communication excellence</li>
+                                <li>Decision-making frameworks</li>
+                                <li>Conflict resolution</li>
+                                <li>Emotional intelligence</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-box" data-category="other">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=200&fit=crop" alt="Study Skills" class="resource-image">
+                        <div class="resource-content">
+                            <h3>Effective Study Techniques</h3>
+                            <p>Proven study methods and time management strategies for academic success.</p>
+                            <button class="expand-btn" onclick="expandResource(this)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="resource-expanded">
+                            <h4>Study Techniques Mastery</h4>
+                            <p>Master effective studying with:</p>
+                            <ul>
+                                <li>Active reading strategies</li>
+                                <li>Note-taking systems</li>
+                                <li>Memory enhancement techniques</li>
+                                <li>Time management methods</li>
+                                <li>Exam preparation strategies</li>
+                            </ul>
+                            <div class="resource-actions">
+                                <button class="btn btn-primary">Download PDF</button>
+                                <button class="btn btn-secondary">View Online</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Auth Section -->
+        <section id="auth" class="auth hidden">
+            <div class="auth-container">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <div class="logo-image" style="margin: 0 auto 1rem;">C</div>
+                    <h2 style="color: var(--primary-color);">Welcome to C-Tech Solutions</h2>
+                    <p style="color: var(--text-muted);">Join thousands of students transforming their careers</p>
+                    <p class="warning" style="color: var(--warning-color); font-size: 0.9rem; margin-top: 1rem;">
+                        ⚠️ Demo only: This site uses client-side login. Use a backend for real authentication.
+                    </p>
+                </div>
+                
+                <div id="loginForm">
+                    <h3 style="margin-bottom: 1.5rem;">Login to Your Account</h3>
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox"> <span style="font-size: 0.9rem;">Remember me</span>
+                            </label>
+                            <a href="#" style="color: var(--primary-color); text-decoration: none; font-size: 0.9rem;">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </form>
+                    <p style="text-align: center; color: var(--text-muted);">
+                        Don't have an account? 
+                        <a href="#" onclick="toggleAuthForm()" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Sign up here</a>
+                    </p>
+                    <div style="margin-top: 2rem; padding: 1rem; background: var(--bg-secondary); border-radius: 10px; font-size: 0.9rem;">
+                        <strong>Demo Accounts:</strong><br>
+                        📧 mohammed@example.com | 🔑 password<br>
+                        📧 sarah@example.com | 🔑 password
+                    </div>
+                </div>
+                
+                <div id="signupForm" style="display: none;">
+                    <h3 style="margin-bottom: 1.5rem;">Create Your Account</h3>
+                    <form onsubmit="handleSignup(event)">
+                        <div class="form-group">
+                            <label for="signupName">Full Name</label>
+                            <input type="text" id="signupName" name="name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Email Address</label>
+                            <input type="email" id="signupEmail" name="email" required placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPhone">Phone Number</label>
+                            <input type="tel" id="signupPhone" name="phone" required placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" name="password" required minlength="6" placeholder="At least 6 characters">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                        </div>
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" required>
+                                <span style="font-size: 0.9rem;">I agree to the <a href="#" style="color: var(--primary-color);">Terms of Service</a> and <a href="#" style="color: var(--primary-color);">Privacy Policy</a></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                    </form>
+                    <p style="text-align: center; color: var(--text-muted);">
+                        Already have an account? 
+                        <a href="#" onclick="toggleAuthForm()" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="section hidden">
+            <div class="container">
+                <h2 class="section-title">Our Courses</h2>
+
+                 <!-- Search Bar -->
+                <div class="resource-search">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="courseSearch" placeholder="Search courses..." onkeyup="searchCourses(this.value)">
+                    </div>
+                </div>
+
+                
+                <!-- Course Filter -->
+                <div class="course-filter">
+                    <button class="filter-btn active" onclick="filterCourses('all')">All Courses</button>
+                    <button class="filter-btn" onclick="filterCourses('beginner')">Beginner</button>
+                    <button class="filter-btn" onclick="filterCourses('intermediate')">Intermediate</button>
+                    <button class="filter-btn" onclick="filterCourses('advanced')">Advanced</button>
+                    <button class="filter-btn" onclick="filterCourses('premium')">Premium</button>
+                </div>
+                
+                <div class="courses-grid">
+                    <div class="course-card" data-level="beginner">
+                        <div class="course-badge">Popular</div>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="Digital Marketing" class="course-image">
+                        <div class="course-content">
+                            <div class="course-header">
+                                <h3>Digital Marketing Mastery</h3>
+                                <div class="course-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (1,250 reviews)</span>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                                Comprehensive course covering social media marketing, SEO, content strategy, 
+                                and analytics. Perfect for beginners looking to start their digital marketing journey.
+                            </p>
+                            <div class="course-details">
+                                <span>📅 12 Weeks</span>
+                                <span>🎓 Certificate</span>
+                                <span>👥 Live Sessions</span>
+                            </div>
+                            <div class="course-price">$299 <span style="text-decoration: line-through; color: var(--text-muted); font-size: 1rem;">$399</span></div>
+                            <button class="btn btn-primary" onclick="enrollInCourse('Digital Marketing Mastery', 299)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="showCoursePreview('Digital Marketing Mastery')" style="margin-left: 10px;">Preview</button>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card" data-level="intermediate">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=200&fit=crop" alt="Web Development" class="course-image">
+                        <div class="course-content">
+                            <div class="course-header">
+                                <h3>Full Stack Web Development</h3>
+                                <div class="course-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (890 reviews)</span>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                                Master HTML, CSS, JavaScript, React, Node.js, and MongoDB. Build real projects 
+                                and create a professional portfolio by the end of the course.
+                            </p>
+                            <div class="course-details">
+                                <span>📅 20 Weeks</span>
+                                <span>🎓 Certificate</span>
+                                <span>💻 15+ Projects</span>
+                            </div>
+                            <div class="course-price">$599</div>
+                            <button class="btn btn-primary" onclick="enrollInCourse('Full Stack Web Development', 599)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="showCoursePreview('Full Stack Web Development')" style="margin-left: 10px;">Preview</button>
+                        </div>
+                    </div>
+                    
+                    <div class="course-card" data-level="premium">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" alt="Data Analysis" class="course-image">
+                        <div class="course-content">
+                            <div class="course-header">
+                                <h3>Data Science with Python & AI</h3>
+                                <div class="course-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 (670 reviews)</span>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                                Master data manipulation, visualization, machine learning, and AI using Python, 
+                                pandas, scikit-learn, and TensorFlow with real-world datasets.
+                            </p>
+                            <div class="course-details">
+                                <span>📅 16 Weeks</span>
+                                <span>🎓 Certificate</span>
+                                <span>📊 Real Data Projects</span>
+                            </div>
+                            <div class="course-price">$549</div>
+                            <button class="btn btn-primary" onclick="enrollInCourse('Data Science with Python & AI', 549)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="showCoursePreview('Data Science with Python & AI')" style="margin-left: 10px;">Preview</button>
+                        </div>
+                    </div>
+
+                      <div class="course-card" data-level="advanced">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=200&fit=crop" alt="Web Development" class="course-image">
+                        <div class="course-content">
+                            <div class="course-header">
+                                <h3> Python </h3>
+                                <div class="course-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (890 reviews)</span>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                                Master HTML, CSS, JavaScript, React, Node.js, and MongoDB. Build real projects 
+                                and create a professional portfolio by the end of the course.
+                            </p>
+                            <div class="course-details">
+                                <span>📅 20 Weeks</span>
+                                <span>🎓 Certificate</span>
+                                <span>💻 15+ Projects</span>
+                            </div>
+                            <div class="course-price">$599</div>
+                            <button class="btn btn-primary" onclick="enrollInCourse('Full Stack Web Development', 599)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="showCoursePreview('Full Stack Web Development')" style="margin-left: 10px;">Preview</button>
+                        </div>
+                    </div>
+                      <div class="course-card" data-level="intermediate">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=200&fit=crop" alt="Web Development" class="course-image">
+                        <div class="course-content">
+                            <div class="course-header">
+                                <h3>PHPDevelopment</h3>
+                                <div class="course-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8 (890 reviews)</span>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                                Master HTML, CSS, JavaScript, React, Node.js, and MongoDB. Build real projects 
+                                and create a professional portfolio by the end of the course.
+                            </p>
+                            <div class="course-details">
+                                <span>📅 20 Weeks</span>
+                                <span>🎓 Certificate</span>
+                                <span>💻 15+ Projects</span>
+                            </div>
+                            <div class="course-price">$599</div>
+                            <button class="btn btn-primary" onclick="enrollInCourse('Full Stack Web Development', 599)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="showCoursePreview('Full Stack Web Development')" style="margin-left: 10px;">Preview</button>
+                        </div>
+                    </div>
+                    <!-- More courses as in the original file -->
+                    <div class="course-card" data-level="beginner">
+                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=200&fit=crop" alt="Creative Writing" class="course-image">
+                        <div class="course-content">
+                            <div class="course-header">
+                                <h3>Creative Writing Workshop</h3>
+                                <div class="course-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>4.7 (340 reviews)</span>
+                                </div>
+                            </div>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+                                Develop your writing skills with structured exercises, peer feedback, 
+                                and personalized guidance from experienced writers and published authors.
+                            </p>
+                            <div class="course-details">
+                                <span>📅 10 Weeks</span>
+                                <span>🎓 Certificate</span>
+                                <span>✍️ Workshops</span>
+                            </div>
+                            <div class="course-price">$249</div>
+                            <button class="btn btn-primary" onclick="enrollInCourse('Creative Writing Workshop', 249)">Enroll Now</button>
+                            <button class="btn btn-secondary" onclick="showCoursePreview('Creative Writing Workshop')" style="margin-left: 10px;">Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Students Section -->
+        <section id="students" class="section hidden" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 class="section-title">Student Success Stories</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow-sm);">
+                        <div class="course-rating" style="margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 1rem; color: var(--text-secondary);">
+                            "The Digital Marketing course completely transformed my career. 
+                            The practical approach and real-world projects helped me land my dream job 
+                            at a Fortune 500 company. The ROI on this course was incredible!"
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4299e1, var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">MJ</div>
+                            <div>
+                                <strong>Michael Johnson</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Digital Marketing Specialist at Google</p>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Graduated: Digital Marketing Mastery</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow-sm);">
+                        <div class="course-rating" style="margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 1rem; color: var(--text-secondary);">
+                            "The Full Stack Web Development course was exactly what I needed to switch careers. 
+                            The teaching style made complex concepts easy to understand, and the 
+                            community support was incredible. Now I'm a senior developer!"
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4299e1, var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">AL</div>
+                            <div>
+                                <strong>Amanda Lee</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Senior Frontend Developer at Microsoft</p>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Graduated: Full Stack Web Development</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow-sm);">
+                        <div class="course-rating" style="margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 1rem; color: var(--text-secondary);">
+                            "From zero coding experience to building my own mobile apps! 
+                            The mobile development course was challenging but incredibly rewarding. 
+                            I launched my first app last month and it's already gaining users."
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4299e1, var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">MS</div>
+                            <div>
+                                <strong>Mohammed Sinan</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Independent App Developer</p>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Graduated: Mobile App Development</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow-sm);">
+                        <div class="course-rating" style="margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 1rem; color: var(--text-secondary);">
+                            "I never thought I could learn data science, but C-Tech made it accessible 
+                            and fun. Now I use Python and AI daily in my research work. The course 
+                            opened up a completely new world for me!"
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4299e1, var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">DK</div>
+                            <div>
+                                <strong>Dr. David Kim</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Senior Research Scientist at Tesla</p>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Graduated: Data Science with Python & AI</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow-sm);">
+                        <div class="course-rating" style="margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 1rem; color: var(--text-secondary);">
+                            "The UI/UX Design course transformed my creative career. 
+                            The portfolio I built helped me get hired at a top design agency. 
+                            The mentorship and feedback were invaluable!"
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4299e1, var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">EP</div>
+                            <div>
+                                <strong>Emily Parker</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Senior UX Designer at Airbnb</p>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Graduated: UI/UX Design Mastery</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: var(--shadow-sm);">
+                        <div class="course-rating" style="margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p style="font-style: italic; margin-bottom: 1rem; color: var(--text-secondary);">
+                            "The Cloud Computing course prepared me perfectly for the AWS certification. 
+                            The hands-on labs and real-world scenarios made all the difference. 
+                            I'm now leading cloud migrations at my company!"
+                        </p>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                            <div style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, #4299e1, var(--secondary-color)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">RG</div>
+                            <div>
+                                <strong>Raj Gupta</strong>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Cloud Solutions Architect at Amazon</p>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;">Graduated: Cloud Computing & DevOps</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Testimonial Section -->
+                <div style="margin-top: 4rem; text-align: center;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 2rem;">📺 Watch Student Success Stories</h3>
+                    <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-sm);">
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                            See how our students transformed their careers and achieved their goals
+                        </p>
+                        <button class="btn btn-primary" onclick="showMessage('success', 'Video testimonials coming soon! Follow us on social media for updates.')">
+                            <i class="fas fa-play"></i> Watch Video Testimonials
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+        <!-- Fees Section -->
+        <section id="fees" class="section hidden">
+            <div class="container">
+                <h2 class="section-title">Flexible Pricing Plans</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">
+                    Choose the plan that best fits your learning goals and budget. All plans include our satisfaction guarantee.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div style="background: white; border-radius: 20px; padding: 2rem; text-align: center; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
+                        <h3 style="color: var(--primary-color);">Basic Plan</h3>
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">$199</div>
+                        <div style="color: var(--text-muted); margin-bottom: 2rem;">per course</div>
+                        <ul style="list-style: none; margin-bottom: 2rem; text-align: left;">
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Self-paced learning</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Video lessons & materials</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Community forum access</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Course completion certificate</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>6 months access</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Email support</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPlan('Basic', 199)">Get Started</button>
+                    </div>
+                    
+                    <div style="background: white; border-radius: 20px; padding: 2rem; text-align: center; box-shadow: var(--shadow-sm); border: 3px solid #4299e1; transform: scale(1.05); position: relative;">
+                        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #4299e1; color: white; padding: 0.5rem 2rem; border-radius: 20px; font-weight: 600;">Most Popular</div>
+                        <h3 style="color: var(--primary-color);">Premium Plan</h3>
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">$399</div>
+                        <div style="color: var(--text-muted); margin-bottom: 2rem;">per course</div>
+                        <ul style="list-style: none; margin-bottom: 2rem; text-align: left;">
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Everything in Basic</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Live weekly sessions</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Monthly 1-on-1 mentoring</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Project reviews & feedback</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Lifetime access</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Career guidance & job placement assistance</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Grok AI assistant access</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPlan('Premium', 399)">Start Premium</button>
+                    </div>
+
+                    <div style="background: white; border-radius: 20px; padding: 2rem; text-align: center; box-shadow: var(--shadow-sm); position: relative;">
+                        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--secondary-color); color: white; padding: 0.5rem 2rem; border-radius: 20px; font-weight: 600;">Enterprise</div>
+                        <h3 style="color: var(--primary-color);">Professional Plan</h3>
+                        <div style="font-size: 3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">$599</div>
+                        <div style="color: var(--text-muted); margin-bottom: 2rem;">per course</div>
+                        <ul style="list-style: none; margin-bottom: 2rem; text-align: left;">
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Everything in Premium</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Private Discord channel</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Weekly 1-on-1 calls (4 per month)</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Custom project guidance</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Resume & portfolio review</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Interview preparation & mock interviews</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Industry networking opportunities</li>
+                            <li style="padding: 0.5rem 0; color: var(--text-secondary);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i>Priority support (24hr response)</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPlan('Professional', 599)">Go Professional</button>
+                    </div>
+                </div>
+                
+                <!-- Payment Options and Guarantees -->
+                <div style="margin-top: 4rem;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div style="text-align: center; padding: 2rem; background: var(--bg-secondary); border-radius: 15px;">
+                            <i class="fas fa-credit-card" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Flexible Payment</h3>
+                            <p style="color: var(--text-secondary);">
+                                Pay in full or choose our 3-6 month installment plans. 
+                                We accept all major credit cards, PayPal, and bank transfers.
+                            </p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: var(--bg-secondary); border-radius: 15px;">
+                            <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--success-color); margin-bottom: 1rem;"></i>
+                            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">30-Day Guarantee</h3>
+                            <p style="color: var(--text-secondary);">
+                                Not satisfied? Get a full refund within 30 days of enrollment. 
+                                No questions asked, no hassle.
+                            </p>
+                        </div>
+                        <div style="text-align: center; padding: 2rem; background: var(--bg-secondary); border-radius: 15px;">
+                            <i class="fas fa-graduation-cap" style="font-size: 3rem; color: var(--warning-color); margin-bottom: 1rem;"></i>
+                            <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Job Guarantee</h3>
+                            <p style="color: var(--text-secondary);">
+                                Premium & Professional plan graduates get a job within 6 months or 
+                                we'll refund your course fee.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scholarship Information -->
+                <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); color: white; padding: 3rem; border-radius: 20px; margin-top: 3rem; text-align: center;">
+                    <h3 style="margin-bottom: 1rem;">🎓 Scholarship Opportunities Available</h3>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">
+                        We offer need-based scholarships and discounts for students, veterans, and underrepresented groups in tech.
+                    </p>
+                    <button class="btn btn-secondary" onclick="showPageWithHistory('contact')" style="background: white; color: var(--primary-color);">
+                        Apply for Scholarship
+                    </button>
+                </div>
+
+                <!-- Enterprise Solutions -->
+                <div style="background: var(--bg-secondary); padding: 3rem; border-radius: 20px; margin-top: 3rem; text-align: center;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">🏢 Enterprise & Team Training</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Custom training programs for organizations. Volume discounts available for teams of 5+ people.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                        <div style="color: var(--text-secondary);">✅ Custom curriculum</div>
+                        <div style="color: var(--text-secondary);">✅ Dedicated account manager</div>
+                        <div style="color: var(--text-secondary);">✅ Progress tracking & reporting</div>
+                        <div style="color: var(--text-secondary);">✅ Volume pricing discounts</div>
+                    </div>
+                    <button class="btn btn-primary" onclick="showMessage('success', 'Enterprise team will contact you within 24 hours!')">
+                        Contact Enterprise Team
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section hidden">
+            <div class="container">
+                <h2 class="section-title">Get in Touch</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+                    <div>
+                        <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Contact Information</h3>
+                        <div class="contact-item" style="margin-bottom: 2rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Head Office (India):</strong><br>
+                                Tech Hub Building, Sector 62<br>
+                                Noida, Uttar Pradesh 201301, India
+                            </div>
+                        </div>
+                        <div class="contact-item" style="margin-bottom: 2rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>US Office:</strong><br>
+                                123 Innovation Drive<br>
+                                San Francisco, CA 94105, USA
+                            </div>
+                        </div>
+                        <div class="contact-item" style="margin-bottom: 2rem;">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                India: +91-120-4567-890<br>
+                                USA: +1 (415) 555-0123
+                            </div>
+                        </div>
+                        <div class="contact-item" style="margin-bottom: 2rem;">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                General: info@ctechsolutions.com<br>
+                                Admissions: admissions@ctechsolutions.com<br>
+                                Support: support@ctechsolutions.com
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Support Hours:</strong><br>
+                                24/7 Online Chat Support<br>
+                                Phone: Mon-Sat, 9AM - 8PM IST<br>
+                                Emergency: Available 24/7
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 3rem;">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Follow Us</h4>
+                            <div class="social-links">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 style="color: var(--primary-color); margin-bottom: 2rem;">Send us a Message</h3>
+                        <form onsubmit="handleContactForm(event)">
+                            <div class="form-group">
+                                <label for="contactName">Full Name *</label>
+                                <input type="text" id="contactName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email Address *</label>
+                                <input type="email" id="contactEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number</label>
+                                <input type="tel" id="contactPhone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Subject *</label>
+                                <select id="contactSubject" name="subject" required style="width: 100%; padding: var(--spacing-sm); border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem;">
+                                    <option value="">Select a subject</option>
+                                    <option value="course-inquiry">Course Inquiry</option>
+                                    <option value="enrollment-help">Enrollment Help</option>
+                                    <option value="technical-support">Technical Support</option>
+                                    <option value="scholarship">Scholarship Application</option>
+                                    <option value="enterprise">Enterprise Training</option>
+                                    <option value="general">General Question</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message *</label>
+                                <textarea id="contactMessage" name="message" required rows="6" style="width: 100%; padding: var(--spacing-sm); border: 2px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; resize: vertical;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" required>
+                                    <span style="font-size: 0.9rem;">I agree to receive email updates and communications from C-Tech Solutions</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div style="margin-top: 5rem;">
+                    <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 3rem;">Frequently Asked Questions</h3>
+                    <div style="display: grid; gap: 1rem; max-width: 800px; margin: 0 auto;">
+                        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm);">
+                            <div style="padding: 1.5rem; cursor: pointer; background: var(--bg-secondary);" onclick="toggleFAQ(this)">
+                                <h4 style="margin: 0; color: var(--primary-color);">How long do I have access to course materials? <i class="fas fa-chevron-down" style="float: right;"></i></h4>
+                            </div>
+                            <div style="padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                                <p style="padding: 1.5rem 0; color: var(--text-secondary);">Basic plan students get 6 months of access, Premium and Professional plan students get lifetime access to all course materials and updates.</p>
+                            </div>
+                        </div>
+                        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm);">
+                            <div style="padding: 1.5rem; cursor: pointer; background: var(--bg-secondary);" onclick="toggleFAQ(this)">
+                                <h4 style="margin: 0; color: var(--primary-color);">Do you offer payment plans? <i class="fas fa-chevron-down" style="float: right;"></i></h4>
+                            </div>
+                            <div style="padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                                <p style="padding: 1.5rem 0; color: var(--text-secondary);">Yes! We offer 3-month and 6-month installment plans with 0% interest. You can also apply for our scholarship program if you need financial assistance.</p>
+                            </div>
+                        </div>
+                        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm);">
+                            <div style="padding: 1.5rem; cursor: pointer; background: var(--bg-secondary);" onclick="toggleFAQ(this)">
+                                <h4 style="margin: 0; color: var(--primary-color);">What's included in the job guarantee? <i class="fas fa-chevron-down" style="float: right;"></i></h4>
+                            </div>
+                            <div style="padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                                <p style="padding: 1.5rem 0; color: var(--text-secondary);">Premium and Professional plan graduates who complete all course requirements and participate in our career services program are guaranteed to receive a job offer within 6 months or receive a full refund.</p>
+                            </div>
+                        </div>
+                        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm);">
+                            <div style="padding: 1.5rem; cursor: pointer; background: var(--bg-secondary);" onclick="toggleFAQ(this)">
+                                <h4 style="margin: 0; color: var(--primary-color);">Can I switch between plans? <i class="fas fa-chevron-down" style="float: right;"></i></h4>
+                            </div>
+                            <div style="padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: all 0.3s ease;">
+                                <p style="padding: 1.5rem 0; color: var(--text-secondary);">Yes, you can upgrade your plan at any time by paying the difference. Downgrades are available within the first 30 days of enrollment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard hidden">
+            <div class="container">
+                <h1 id="dashboardWelcome" style="text-align: center; margin-bottom: 3rem;">Welcome back!</h1>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="enrolledCourses">9</div>
+                        <div class="stat-label">Enrolled Courses</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="completedCourses">3</div>
+                        <div class="stat-label">Completed Courses</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalHours">245</div>
+                        <div class="stat-label">Learning Hours</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="certificates">3</div>
+                        <div class="stat-label">Certificates</div>
+                    </div>
+                </div>
+
+                <!-- Progress Chart -->
+                <div class="progress-chart">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">📊 Your Learning Progress</h3>
+                    <div class="chart-container">
+                        <canvas id="progressChart" width="600" height="300"></canvas>
+                    </div>
+                    <p style="color: var(--text-muted); text-align: center;">Hours spent learning each subject this month</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Profile Section -->
+        <section id="profile" class="profile hidden">
+            <div class="container">
+                <div class="profile-layout">
+                    <!-- User Profile Header -->
+                    <div class="profile-header-section">
+                        <div class="profile-card">
+                            <div class="profile-header">
+                                <div class="profile-avatar" id="profileAvatar">MS</div>
+                                <h1 id="profileName">Mohammed Sinan C</h1>
+                                <p>Premium Learning Member</p>
+                                <div style="margin-top: 1rem;">
+                                    <span style="background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.9rem; margin-right: 0.5rem;">🎯 Goal-Oriented</span>
+                                    <span style="background: rgba(255,255,255,0.2); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.9rem;">🚀 Fast Learner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Content Grid -->
+                    <div class="profile-content-grid">
+                        <!-- User Details Section -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h2>User Details</h2>
+                                <button class="btn btn-secondary btn-sm" onclick="showMessage('success', 'Edit profile functionality coming soon!')">
+                                    <i class="fas fa-edit"></i> Edit Profile
+                                </button>
+                            </div>
+                            <div class="profile-info">
+                                <div class="info-row">
+                                    <span class="info-label">Full Name:</span>
+                                    <span class="info-value">Mohammed Sinan C</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Email:</span>
+                                    <span class="info-value">te25bca002@techethica.in</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Country:</span>
+                                    <span class="info-value">India</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">City/Town:</span>
+                                    <span class="info-value">Bengaluru</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Timezone:</span>
+                                    <span class="info-value">Asia/Kolkata</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Member Since:</span>
+                                    <span class="info-value">August 2025</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Privacy and Policies Section -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h2>Privacy and Policies</h2>
+                            </div>
+                            <div class="privacy-content">
+                                <div class="privacy-item">
+                                    <h3>Data Retention Summary</h3>
+                                    <p>Your personal data is retained according to our privacy policy. Course progress and certificates are stored permanently. Personal information can be updated or deleted upon request.</p>
+                                    <button class="btn btn-secondary btn-sm" onclick="showMessage('success', 'Privacy settings will open in a new window.')">
+                                        View Privacy Settings
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course Details Section -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h2>Course Details</h2>
+                            </div>
+                            <div class="enrolled-courses">
+                                <h3>Enrolled Courses:</h3>
+                                <div class="courses-list">
+                                    <div class="course-item">
+                                        <div class="course-info">
+                                            <h4>ZANJAAN</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 95%;"></div>
+                                            </div>
+                                            <span class="progress-text">95% Complete</span>
+                                        </div>
+                                        <span class="course-status completed">✓ Completed</span>
+                                    </div>
+                                    
+                                    <div class="course-item">
+                                        <div class="course-info">
+                                            <h4>Madkhal and Manthiq</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 87%;"></div>
+                                            </div>
+                                            <span class="progress-text">87% Complete</span>
+                                        </div>
+                                        <span class="course-status completed">✓ Completed</span>
+                                    </div>
+                                    
+                                    <div class="course-item">
+                                        <div class="course-info">
+                                            <h4>Fathul Mueen</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 92%;"></div>
+                                            </div>
+                                            <span class="progress-text">92% Complete</span>
+                                        </div>
+                                        <span class="course-status completed">✓ Completed</span>
+                                    </div>
+                                    
+                                    <div class="course-item">
+                                        <div class="course-info">
+                                            <h4>Qatr-u-Nida</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 78%;"></div>
+                                            </div>
+                                            <span class="progress-text">78% Complete</span>
+                                        </div>
+                                        <span class="course-status in-progress">📚 In Progress</span>
+                                    </div>
+                                    
+                                    <div class="course-item">
+                                        <div class="course-info">
+                                            <h4>Urdu Language & Literature</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 65%;"></div>
+                                            </div>
+                                            <span class="progress-text">65% Complete</span>
+                                        </div>
+                                        <span class="course-status in-progress">📚 In Progress</span>
+                                    </div>
+                                    
+                                    <div class="course-item">
+                                        <div class="course-info">
+                                            <h4>Modern Arabic</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 45%;"></div>
+                                            </div>
+                                            <span class="progress-text">45% Complete</span>
+                                        </div>
+                                        <span class="course-status in-progress">📚 In Progress</span>
+                                    </div>
+                                    
+                                    <!-- Hidden courses initially -->
+                                    <div class="course-item hidden-course" style="display: none;">
+                                        <div class="course-info">
+                                            <h4>Mukhtasarul Bayan – Thajweed</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 35%;"></div>
+                                            </div>
+                                            <span class="progress-text">35% Complete</span>
+                                        </div>
+                                        <span class="course-status in-progress">📚 In Progress</span>
+                                    </div>
+                                    
+                                    <div class="course-item hidden-course" style="display: none;">
+                                        <div class="course-info">
+                                            <h4>IIT Statistics</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 25%;"></div>
+                                            </div>
+                                            <span class="progress-text">25% Complete</span>
+                                        </div>
+                                        <span class="course-status in-progress">📚 In Progress</span>
+                                    </div>
+                                    
+                                    <div class="course-item hidden-course" style="display: none;">
+                                        <div class="course-info">
+                                            <h4>English – IIT</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 15%;"></div>
+                                            </div>
+                                            <span class="progress-text">15% Complete</span>
+                                        </div>
+                                        <span class="course-status in-progress">📚 In Progress</span>
+                                    </div>
+                                    
+                                    <div class="course-item hidden-course" style="display: none;">
+                                        <div class="course-info">
+                                            <h4>Computational Thinking</h4>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 8%;"></div>
+                                            </div>
+                                            <span class="progress-text">8% Complete</span>
+                                        </div>
+                                        <span class="course-status in-progress">📚 In Progress</span>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-secondary" id="viewMoreCourses" onclick="toggleMoreCourses()">
+                                    <i class="fas fa-chevron-down"></i> View More
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Miscellaneous Section -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h2>Miscellaneous</h2>
+                            </div>
+                            <div class="misc-content">
+                                <div class="misc-item">
+                                    <i class="fas fa-blog"></i>
+                                    <span>Blog Entries: <strong>12</strong></span>
+                                </div>
+                                <div class="misc-item">
+                                    <i class="fas fa-comments"></i>
+                                    <span>Forum Posts: <strong>48</strong></span>
+                                </div>
+                                <div class="misc-item">
+                                    <i class="fas fa-discussion"></i>
+                                    <span>Forum Discussions: <strong>23</strong></span>
+                                </div>
+                                <div class="misc-item">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>Learning Plans: <strong>5</strong></span>
+                                </div>
+                                <div class="misc-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Reports Generated: <strong>15</strong></span>
+                                </div>
+                                <div class="misc-item">
+                                    <i class="fas fa-browser"></i>
+                                    <span>Active Browser Sessions: <strong>3</strong></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grades Overview Section -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h2>Grades Overview</h2>
+                            </div>
+                            <div class="grades-content">
+                                <div class="grade-item">
+                                    <span class="course-name">ZANJAAN</span>
+                                    <span class="grade excellent">A+</span>
+                                </div>
+                                <div class="grade-item">
+                                    <span class="course-name">Madkhal and Manthiq</span>
+                                    <span class="grade excellent">A</span>
+                                </div>
+                                <div class="grade-item">
+                                    <span class="course-name">Fathul Mueen</span>
+                                    <span class="grade excellent">A+</span>
+                                </div>
+                                <div class="grade-item">
+                                    <span class="course-name">Qatr-u-Nida</span>
+                                    <span class="grade pending">In Progress</span>
+                                </div>
+                                <div class="grade-item">
+                                    <span class="course-name">Urdu Language & Literature</span>
+                                    <span class="grade good">B+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Login Activity Section -->
+                        <div class="profile-section">
+                            <div class="section-header">
+                                <h2>Login Activity</h2>
+                            </div>
+                            <div class="login-activity">
+                                <div class="activity-item">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    <div class="activity-details">
+                                        <strong>First Access:</strong>
+                                        <span>Tuesday, 5 August 2025, 9:49 AM</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div class="activity-details">
+                                        <strong>Last Access:</strong>
+                                        <span>Monday, 25 August 2025, 9:46 PM (now)</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div class="activity-details">
+                                        <strong>Total Sessions:</strong>
+                                        <span>127 sessions</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <div class="activity-details">
+                                        <strong>Average Session Duration:</strong>
+                                        <span>2 hours 15 minutes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <h3>C-Tech Solutions</h3>
+                    <p>Empowering the next generation of tech professionals through innovative education and hands-on learning experiences. Trusted by 15,000+ students worldwide.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                    
+                     <div style="margin-top: 1rem; font-size: 0.9rem; color: #a0aec0;">
+                        <div>🏆 ISO 9001:2015 Certified</div>
+                        <div>🤝 NASSCOM Member</div>
+                        <div>⭐ 4.9/5 Student Rating</div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPageWithHistory('about')">About Us</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('courses')">All Courses</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">Learning Resources</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('students')">Success Stories</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('fees')">Pricing Plans</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('contact')">Contact Us</a></li>
+                        <li><a href="#">Career Services</a></li>
+                        <li><a href="#">Blog & Resources</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Popular Courses -->
+                <div class="footer-section">
+                    <h3>Popular Resources</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">ZANJAAN Study Guide</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">Madkhal and Manthiq</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">Fathul Mueen Handbook</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">Qatr-u-Nida Grammar</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">IIT Statistics</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">Computational Thinking</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">Modern Arabic Course</a></li>
+                        <li><a href="#" onclick="showPageWithHistory('resources')">Thajweed Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Head Office (India):</strong><br>
+                            Tech Hub Building, Sector 62<br>
+                            Noida, Uttar Pradesh 201301
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>US Office:</strong><br>
+                            123 Innovation Drive<br>
+                            San Francisco, CA 94105
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone Support:</strong><br>
+                            India: +91-120-4567-890<br>
+                            USA: +1 (415) 555-0123
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            info@ctechsolutions.com<br>
+                            support@ctechsolutions.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Support Hours:</strong><br>
+                            24/7 Chat & Email<br>
+                            Phone: 9AM-8PM IST (Mon-Sat)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div>
+                        <p>&copy; 2025 C-Tech Solutions. All rights reserved.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookie Policy</a>
+                        <a href="#">Accessibility</a>
+                        <a href="#">Refund Policy</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #718096; text-align: center;">
+                    Transforming careers through technology education since 2017 | Students in 50+ countries | 98% job placement rate
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../api-client.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

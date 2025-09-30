@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Mohammed Sinan C - Full Stack Developer Portfolio</title>
+    <meta name="title" content="Mohammed Sinan C - Full Stack Developer Portfolio">
+    <meta name="description" content="Full Stack Developer specializing in modern web applications with React, Node.js, AWS, and responsive design. View my projects, certifications, and professional experience.">
+    <meta name="author" content="Mohammed Sinan C">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mohammedsinan.dev/">
+    
+    <!-- Theme and Visual -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mohammed Sinan C - Full Stack Developer">
+    <meta property="og:description" content="Full Stack Developer specializing in modern web applications with React, Node.js, AWS, and responsive design.">
+    <meta property="og:url" content="https://mohammedsinan.dev/">
+    <meta property="og:image" content="https://mohammedsinan.dev/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mohammed Sinan C - Full Stack Developer">
+    <meta name="twitter:description" content="Full Stack Developer specializing in modern web applications with React, Node.js, AWS, and responsive design.">
+    <meta name="twitter:image" content="https://mohammedsinan.dev/og-image.jpg">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👨‍💻</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mohammed Sinan C",
+      "jobTitle": "Full Stack Developer",
+      "description": "Full Stack Developer specializing in modern web applications with React, Node.js, AWS, and responsive design.",
+      "url": "https://mohammedsinan.dev/",
+      "sameAs": [
+        "https://github.com/mohammedsinan",
+        "https://linkedin.com/in/mohammedsinan",
+        "https://twitter.com/mohammedsinan"
+      ],
+      "knowsAbout": ["JavaScript", "React", "Node.js", "AWS", "MongoDB", "Full Stack Development", "Web Development"]
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home" class="logo">Mohammed Sinan</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" aria-label="Navigate to Home section">Home</a></li>
+                <li><a href="#about" class="nav-link" aria-label="Navigate to About section">About</a></li>
+                <li><a href="#skills" class="nav-link" aria-label="Navigate to Skills section">Skills</a></li>
+                <li><a href="#certifications" class="nav-link" aria-label="Navigate to Certifications section">Certifications</a></li>
+                <li><a href="#projects" class="nav-link" aria-label="Navigate to Projects section">Projects</a></li>
+                <li><a href="#contact" class="nav-link" aria-label="Navigate to Contact section">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle between light and dark theme">
+                <i class="fas fa-moon" id="theme-icon"></i>
+                <span id="theme-text">Dark</span>
+            </button>
+            <div class="hamburger" onclick="toggleMenu()" aria-label="Toggle mobile navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Hi, I'm Mohammed Sinan</h1>
+            <h2 class="hero-subtitle">Full Stack Developer</h2>
+            <p class="hero-description">
+                I create beautiful, responsive web applications using modern technologies. 
+                Building projects since 2024 with a passion for clean code, user experience, and turning ideas into reality.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary" aria-label="View my portfolio projects">
+                    <i class="fas fa-rocket"></i>
+                    View My Work
+                </a>
+                <a href="#contact" class="btn btn-secondary" aria-label="Get in touch with me">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+                <a href="Resume.pdf" class="btn btn-secondary" download aria-label="Download Mohammed Sinan's resume">
+                    <i class="fas fa-download"></i>
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section fade-in">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Get to know me better</p>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face&q=80" alt="Mohammed Sinan - Full Stack Developer" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h3>Passionate Developer & Problem Solver</h3>
+                <p>
+                    Building projects since 2024, I specialize in creating scalable, user-friendly applications. 
+                    I love working with cutting-edge technologies and am always eager to learn new skills.
+                </p>
+                <p>
+                    When I'm not coding, you can find me exploring new technologies, contributing to 
+                    open-source projects, or sharing knowledge with the developer community.
+                </p>
+                <p>
+                    I believe in writing clean, maintainable code and creating digital experiences 
+                    that make a positive impact on users' lives.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/mohammedsinan" class="social-link" aria-label="Visit Mohammed Sinan's GitHub profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/mohammedsinan" class="social-link" aria-label="Visit Mohammed Sinan's LinkedIn profile">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/mohammedsinan" class="social-link" aria-label="Visit Mohammed Sinan's Twitter profile">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://dribbble.com/mohammedsinan" class="social-link" aria-label="Visit Mohammed Sinan's Dribbble profile">
+                        <i class="fab fa-dribbble"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-subtitle">The tools and technologies I work with</p>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-html5 skill-icon"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt skill-icon"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js-square skill-icon"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-react skill-icon"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-vue skill-icon"></i>
+                        <span>Vue.js</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-sass skill-icon"></i>
+                        <span>Sass</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-server"></i> Backend Development</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-node-js skill-icon"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database skill-icon"></i>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-python skill-icon"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-fire skill-icon"></i>
+                        <span>Firebase</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cloud skill-icon"></i>
+                        <span>REST API</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt skill-icon"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-docker skill-icon"></i>
+                        <span>Docker</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-aws skill-icon"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-figma skill-icon"></i>
+                        <span>Figma</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-mobile-alt skill-icon"></i>
+                        <span>Responsive Design</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-search skill-icon"></i>
+                        <span>SEO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section fade-in">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">My professional certifications and achievements</p>
+        <div class="certifications-grid">
+            <div class="certification-card">
+                <div class="cert-image-container">
+                    <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&q=80" 
+                         alt="Full Stack Web Development Certificate" 
+                         class="cert-image">
+                    <div class="cert-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>View Certificate</span>
+                    </div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">Full Stack Web Development</h3>
+                    <p class="cert-issuer">freeCodeCamp</p>
+                    <p class="cert-date">December 2024</p>
+                    <a href="https://freecodecamp.org/certification/yourname/full-stack" 
+                       class="cert-link" 
+                       target="_blank"
+                       onclick="openCertificateModal('fullstack-cert.jpg')"
+                       aria-label="View Full Stack Web Development certificate">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="cert-image-container">
+                    <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=300&fit=crop&q=80" 
+                         alt="JavaScript Algorithms Certificate" 
+                         class="cert-image">
+                    <div class="cert-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>View Certificate</span>
+                    </div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">JavaScript Algorithms and Data Structures</h3>
+                    <p class="cert-issuer">freeCodeCamp</p>
+                    <p class="cert-date">November 2024</p>
+                    <a href="https://freecodecamp.org/certification/yourname/javascript-algorithms" 
+                       class="cert-link" 
+                       target="_blank"
+                       onclick="openCertificateModal('javascript-cert.jpg')"
+                       aria-label="View JavaScript Algorithms certificate">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="cert-image-container">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop&q=80" 
+                         alt="React Certificate" 
+                         class="cert-image">
+                    <div class="cert-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>View Certificate</span>
+                    </div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">React - The Complete Guide</h3>
+                    <p class="cert-issuer">Udemy</p>
+                    <p class="cert-date">October 2024</p>
+                    <a href="https://udemy.com/certificate/your-react-certificate" 
+                       class="cert-link" 
+                       target="_blank"
+                       onclick="openCertificateModal('react-cert.jpg')"
+                       aria-label="View React certificate">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="cert-image-container">
+                    <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=400&h=300&fit=crop&q=80" 
+                         alt="Node.js Developer Certificate" 
+                         class="cert-image">
+                    <div class="cert-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>View Certificate</span>
+                    </div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">Node.js Developer Certification</h3>
+                    <p class="cert-issuer">MongoDB University</p>
+                    <p class="cert-date">September 2024</p>
+                    <a href="https://university.mongodb.com/certification/certificate/your-cert-id" 
+                       class="cert-link" 
+                       target="_blank"
+                       onclick="openCertificateModal('nodejs-cert')"
+                       aria-label="View Node.js Developer certificate">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="cert-image-container">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&q=80" 
+                         alt="AWS Cloud Practitioner Certificate" 
+                         class="cert-image">
+                    <div class="cert-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>View Certificate</span>
+                    </div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">AWS Cloud Practitioner</h3>
+                    <p class="cert-issuer">Amazon Web Services</p>
+                    <p class="cert-date">August 2024</p>
+                    <a href="./AWS Job Simution.pdf" 
+                       class="cert-link" 
+                       target="_blank"
+                       onclick="event.preventDefault(); openCertificateModal('aws-cert', 'AWS Cloud Practitioner Certificate')"
+                       aria-label="View AWS Cloud Practitioner certificate">
+                        <i class="fas fa-file-pdf"></i>
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certification-card">
+                <div class="cert-image-container">
+                    <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=400&h=300&fit=crop&q=80&auto=format&ixlib=rb-4.0.3" 
+                         alt="VLSI Certificate" 
+                         class="cert-image">
+                    <div class="cert-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <span>View Certificate</span>
+                    </div>
+                </div>
+                <div class="cert-content">
+                    <h3 class="cert-title">VLSI Certification</h3>
+                    <p class="cert-issuer">VLSI Institute</p>
+                    <p class="cert-date">June 2024</p>
+                    <a href="./vlsi 1-499_signed.pdf" 
+                       class="cert-link" 
+                       target="_blank"
+                       onclick="event.preventDefault(); openCertificateModal('vls-cert', 'VLSI Certification')"
+                       aria-label="View VLSI certificate">
+                        <i class="fas fa-file-pdf"></i>
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section fade-in">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Some of my recent work that I'm proud of</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=E-Commerce+Platform" alt="E-Commerce Platform - Full-stack application with payment integration">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">E-Commerce Platform</h3>
+                    <p class="project-description">
+                        A full-stack e-commerce application with user authentication, payment processing, 
+                        and admin dashboard. Built for scalability and performance.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://ecommerce-sinan.netlify.app" class="project-link" aria-label="View E-Commerce Platform live demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/mohammedsinan/ecommerce-platform" class="project-link" aria-label="View E-Commerce Platform source code">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Task+Management+App" alt="Task Management App - Collaborative project management tool">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Task Management App</h3>
+                    <p class="project-description">
+                        A responsive task management application with real-time updates, drag-and-drop functionality, 
+                        and team collaboration features.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Vuetify</span>
+                        <span class="tech-tag">PWA</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://taskmanager-sinan.netlify.app" class="project-link" aria-label="View Task Management App live demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/mohammedsinan/task-manager" class="project-link" aria-label="View Task Management App source code">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Analytics+Dashboard" alt="Analytics Dashboard - Data visualization and monitoring platform">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Analytics Dashboard</h3>
+                    <p class="project-description">
+                        A comprehensive analytics dashboard with interactive charts, data visualization, 
+                        and real-time monitoring capabilities.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://analytics-dashboard-sinan.herokuapp.com" class="project-link" aria-label="View Analytics Dashboard live demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/mohammedsinan/analytics-dashboard" class="project-link" aria-label="View Analytics Dashboard source code">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Music+Streaming+App" alt="Music Streaming App - Spotify-like music platform">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Music Streaming App</h3>
+                    <p class="project-description">
+                        A Spotify-like music streaming application with playlist management, 
+                        audio controls, and social sharing features.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Prisma</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://music-stream-sinan.vercel.app" class="project-link" aria-label="View Music Streaming App live demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/mohammedsinan/music-streaming-app" class="project-link" aria-label="View Music Streaming App source code">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Real+Estate+Platform" alt="Real Estate Platform - Property listing and management system">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Real Estate Platform</h3>
+                    <p class="project-description">
+                        A modern real estate platform with property listings, virtual tours, 
+                        and integrated mortgage calculator.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Redux</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MySQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://realestate-sinan.netlify.app" class="project-link" aria-label="View Real Estate Platform live demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/mohammedsinan/real-estate-platform" class="project-link" aria-label="View Real Estate Platform source code">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://via.placeholder.com/400x250?text=Portfolio+Website" alt="Portfolio Website - Personal developer portfolio with modern design">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="project-description">
+                        A responsive portfolio website with dark mode, smooth animations, 
+                        and optimized performance. Built with modern web technologies.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://mohammedsinan.github.io" class="project-link" aria-label="View Portfolio Website live demo">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="https://github.com/mohammedsinan/portfolio" class="project-link" aria-label="View Portfolio Website source code">
+                            <i class="fab fa-github"></i>
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's work together on your next project</p>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Let's Connect</h3>
+                <p>
+                    I'm always interested in hearing about new projects and opportunities. 
+                    Whether you're a company looking to hire, or you're someone who has a 
+                    project in mind, I'd love to hear from you.
+                </p>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>mohammedsinan.dev@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p>+91 9876543210</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <p>India</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/mohammedsinan" class="social-link" aria-label="Visit Mohammed Sinan's GitHub profile">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/mohammedsinan" class="social-link" aria-label="Visit Mohammed Sinan's LinkedIn profile">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/mohammedsinan" class="social-link" aria-label="Visit Mohammed Sinan's Twitter profile">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/mohammedsinan" class="social-link" aria-label="Visit Mohammed Sinan's Instagram profile">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn submit-btn" aria-label="Send message to Mohammed Sinan">
+                    <i class="fas fa-paper-plane"></i>
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Mohammed Sinan. All rights reserved. Built with ❤️ and lots of ☕</p>
+            <div class="footer-links">
+                <a href="https://github.com/mohammedsinan" aria-label="Visit Mohammed Sinan's GitHub profile">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/mohammedsinan" aria-label="Visit Mohammed Sinan's LinkedIn profile">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:mohammedsinan.dev@gmail.com" aria-label="Send email to Mohammed Sinan">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal" onclick="closeCertificateModal()">
+        <div class="modal-content certificate-modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2 id="certificateTitle">Certificate</h2>
+                <span class="close-btn" onclick="closeCertificateModal()">&times;</span>
+            </div>
+            <div class="certificate-image-wrapper">
+                <img id="certificateFullImage" src="" alt="Certificate" class="certificate-full-image">
+                <div id="certificateLoader" class="certificate-loader" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Generating certificate...</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <a id="certificateDownload" href="" download class="btn download-btn">
+                    <i class="fas fa-download"></i>
+                    Download PDF
+                </a>
+                <a id="certificateOriginal" href="" target="_blank" class="btn view-btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    View PDF
+                </a>
+                <button id="certificateShare" class="btn share-btn" onclick="shareCertificate()">
+                    <i class="fas fa-share"></i>
+                    Share
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

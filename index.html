@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dars LMS - Islamic Learning Management System</title>
+    <link rel="stylesheet" href="stylel.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i data-lucide="book"></i>
+                    </div>
+                    <h1>Dars LMS</h1>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <select id="userRoleSelect" class="role-select">
+                    <option value="student">Student View</option>
+                    <option value="teacher">Teacher View</option>
+                    <option value="admin">Admin View</option>
+                </select>
+                
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i data-lucide="user"></i>
+                    </div>
+                    <span>Ahmed Abdullah</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <div class="nav-items">
+                    <button class="nav-item active" data-tab="home">
+                        <i data-lucide="home"></i>
+                        <span>Home</span>
+                    </button>
+                    <button class="nav-item" data-tab="dashboard">
+                        <i data-lucide="book-open"></i>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-tab="courses">
+                        <i data-lucide="book-open"></i>
+                        <span>Courses</span>
+                    </button>
+                    <button class="nav-item" data-tab="assignments">
+                        <i data-lucide="file-text"></i>
+                        <span>Assignments</span>
+                    </button>
+                    <button class="nav-item" data-tab="quran">
+                        <i data-lucide="book"></i>
+                        <span>Quran Study</span>
+                    </button>
+                    <button class="nav-item" data-tab="library">
+                        <i data-lucide="file-text"></i>
+                        <span>Islamic Library</span>
+                    </button>
+                    <button class="nav-item" data-tab="calendar">
+                        <i data-lucide="calendar"></i>
+                        <span>Schedule</span>
+                    </button>
+                    <button class="nav-item" data-tab="students" style="display: none;">
+                        <i data-lucide="users"></i>
+                        <span>Students</span>
+                    </button>
+                    <button class="nav-item" data-tab="notifications">
+                        <i data-lucide="bell"></i>
+                        <span>Notifications</span>
+                    </button>
+                    <button class="nav-item" data-tab="settings">
+                        <i data-lucide="settings"></i>
+                        <span>Settings</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Home Tab -->
+            <div id="home" class="tab-content active">
+                <div class="welcome-banner">
+                    <h1>Marhaban! Welcome to Dars LMS</h1>
+                    <p>Your comprehensive Islamic Learning Management System</p>
+                    <p class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <i data-lucide="book" class="feature-icon green"></i>
+                            <h2>Islamic Studies</h2>
+                        </div>
+                        <p>Access comprehensive courses in Quran, Hadith, Fiqh, Arabic language and more from qualified Islamic scholars.</p>
+                        <button class="btn btn-primary" data-action="courses">Explore Courses</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <i data-lucide="users" class="feature-icon blue"></i>
+                            <h2>Community Learning</h2>
+                        </div>
+                        <p>Join a community of learners and scholars dedicated to authentic Islamic knowledge and spiritual growth.</p>
+                        <button class="btn btn-secondary" data-action="students">View Community</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-header">
+                            <i data-lucide="file-text" class="feature-icon purple"></i>
+                            <h2>Digital Library</h2>
+                        </div>
+                        <p>Access thousands of authentic Islamic books, texts, and resources in multiple languages.</p>
+                        <button class="btn btn-tertiary" data-action="library">Browse Library</button>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h2>Today's Islamic Date</h2>
+                        <div class="date-display">
+                            <div class="islamic-date">4 Rabeeul Aval 1446</div>
+                            <div class="gregorian-date">Corresponding to September 2, 2025</div>
+                            <div class="verse-quote">
+                                <p>"This day I have perfected for you your religion and completed My favor upon you and have approved for you Islam as religion." - Quran 5:3</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h2>Prayer Times Today</h2>
+                        <div class="prayer-times">
+                            <div class="prayer-time completed">
+                                <span class="prayer-name">Fajr</span>
+                                <div class="prayer-info">
+                                    <span class="time">05:24 AM</span>
+                                    <span class="status-dot"></span>
+                                </div>
+                            </div>
+                            <div class="prayer-time completed">
+                                <span class="prayer-name">Dhuhr</span>
+                                <div class="prayer-info">
+                                    <span class="time">12:18 PM</span>
+                                    <span class="status-dot"></span>
+                                </div>
+                            </div>
+                            <div class="prayer-time current">
+                                <span class="prayer-name">Asr</span>
+                                <div class="prayer-info">
+                                    <span class="time">04:45 PM</span>
+                                    <span class="status-dot"></span>
+                                </div>
+                            </div>
+                            <div class="prayer-time upcoming">
+                                <span class="prayer-name">Maghrib</span>
+                                <div class="prayer-info">
+                                    <span class="time">07:12 PM</span>
+                                    <span class="status-dot"></span>
+                                </div>
+                            </div>
+                            <div class="prayer-time upcoming">
+                                <span class="prayer-name">Isha</span>
+                                <div class="prayer-info">
+                                    <span class="time">08:35 PM</span>
+                                    <span class="status-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="actions-grid">
+                        <button class="action-btn" data-action="quran">
+                            <i data-lucide="book" class="green"></i>
+                            <span>Quran Study</span>
+                        </button>
+                        <button class="action-btn" data-action="assignments">
+                            <i data-lucide="file-text" class="orange"></i>
+                            <span>Assignments</span>
+                        </button>
+                        <button class="action-btn" data-action="calendar">
+                            <i data-lucide="calendar" class="blue"></i>
+                            <span>Schedule</span>
+                        </button>
+                        <button class="action-btn" data-action="notifications">
+                            <i data-lucide="bell" class="purple"></i>
+                            <span>Notifications</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other tab contents will be dynamically loaded -->
+            <div id="dashboard" class="tab-content">
+                <div class="dashboard-banner">
+                    <h1>Assalamu Alaikum, Ahmed</h1>
+                    <p>Continue your Islamic studies journey</p>
+                </div>
+                <!-- Dashboard content will be loaded here -->
+            </div>
+
+            <div id="courses" class="tab-content">
+                <div id="coursesList">
+                    <h1>My Courses</h1>
+                    <div class="courses-grid" id="coursesGrid">
+                        <!-- Courses will be loaded here -->
+                    </div>
+                </div>
+                <div id="courseDetail" style="display: none;">
+                    <!-- Course detail will be loaded here -->
+                </div>
+            </div>
+
+            <div id="assignments" class="tab-content">
+                <h1>Assignments</h1>
+                <div class="assignments-grid">
+                    <div class="assignment-column">
+                        <h2 class="orange">Pending (<span id="pendingCount">0</span>)</h2>
+                        <div id="pendingAssignments" class="assignment-list"></div>
+                    </div>
+                    <div class="assignment-column">
+                        <h2 class="blue">Submitted (<span id="submittedCount">0</span>)</h2>
+                        <div id="submittedAssignments" class="assignment-list"></div>
+                    </div>
+                    <div class="assignment-column">
+                        <h2 class="green">Graded (<span id="gradedCount">0</span>)</h2>
+                        <div id="gradedAssignments" class="assignment-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="quran" class="tab-content">
+                <h1>Quran Study Center</h1>
+                <!-- Quran study content will be loaded here -->
+            </div>
+
+            <div id="library" class="tab-content">
+                <h1>Islamic Library</h1>
+                <!-- Library content will be loaded here -->
+            </div>
+
+            <div id="calendar" class="tab-content">
+                <h1>Schedule</h1>
+                <!-- Calendar content will be loaded here -->
+            </div>
+
+            <div id="students" class="tab-content">
+                <h1>Class Directory</h1>
+                <!-- Students content will be loaded here -->
+            </div>
+
+            <div id="notifications" class="tab-content">
+                <h1>Notifications</h1>
+                <!-- Notifications content will be loaded here -->
+            </div>
+
+            <div id="settings" class="tab-content">
+                <h1>Settings</h1>
+                <!-- Settings content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
