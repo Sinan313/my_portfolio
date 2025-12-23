@@ -244,7 +244,6 @@ certificationCards.forEach(card => certCardObserver.observe(card));
 // Preload placeholder images
 function preloadImages() {
     const imagesToPreload = [
-        'your-photo.jpg',
         'https://via.placeholder.com/400x250?text=E-Commerce+Platform',
         'https://via.placeholder.com/400x250?text=Task+Management+App',
         'https://via.placeholder.com/400x250?text=Analytics+Dashboard',
