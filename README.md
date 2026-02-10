@@ -1,4 +1,4 @@
-# C-Tech Solutions Platform
+# Own portfolio
 
 A comprehensive online learning platform for Islamic studies, programming, and academic courses.
 
